@@ -1,0 +1,19 @@
+services:
+  mysql:
+    container_name: mysql-hexagonal
+    image: mysql/mysql-server:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      #      - MYSQL_USER=root
+      #      - MYSQL_PASSWORD=root
+      - MYSQL_ROOT_HOST=%
+#    volumes:
+#      - ./data/mysql:/data/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - mysql-hexagonal
+
+networks:
+  mysql-hexagonal:
+    driver: bridge
